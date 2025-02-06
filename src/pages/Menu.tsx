@@ -3,14 +3,7 @@ import { FileDown } from 'lucide-react';
 
 const Menu = () => {
   const downloadMenu = () => {
-    // Replace this URL with your actual hosted PDF menu file
-    const pdfUrl = '/menu.pdf';
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'Le-Dome-Menu.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open('https://drive.google.com/file/d/1lAqlD7ULWpnjAWBf118p0MJFoIPJznc5/view?usp=sharing', '_blank');
   };
 
   return (
@@ -29,7 +22,7 @@ const Menu = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-gold/30 blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 rounded-3xl"></div>
             <div className="relative border-2 border-gold/30 p-8 rounded-3xl bg-black/80 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-500">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=https://example.com/menu"
+                src="https://i.postimg.cc/j5Tr2Zvs/qr-code.png"
                 alt="Menu QR Code"
                 className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] mx-auto"
               />
