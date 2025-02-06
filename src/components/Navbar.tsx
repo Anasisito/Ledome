@@ -26,10 +26,10 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
+            <a href="https://web.facebook.com/Ledomekenitra" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
               <Facebook size={24} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
+            <a href="https://www.instagram.com/le_dome_kenitra/" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
               <Instagram size={24} />
             </a>
           </div>

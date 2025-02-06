@@ -29,7 +29,7 @@ const Accueil = () => {
             Bienvenue chez Le Dôme
           </h2>
           <p className="text-gold/80 leading-relaxed max-w-2xl mx-auto text-lg">
-            Au cœur de Paris, Le Dôme vous invite à découvrir une cuisine française raffinée
+            Au cœur de kenitra, Le Dôme vous invite à découvrir une cuisine international raffinée
             dans un cadre élégant et chaleureux. Notre chef étoilé crée des plats exceptionnels
             qui célèbrent les meilleurs produits de saison.
           </p>

@@ -37,7 +37,7 @@ const Blog = () => {
             <div className="border border-gold/20 rounded-lg overflow-hidden backdrop-blur-sm">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://i.postimg.cc/G2dZd9ht/Snapinst-app-468098358-18001065221697695-5839894859924354104-n-1080.jpg"
+                  src="https://i.postimg.cc/3R8bz6nD/Snapinst-app-468003466-18001062449697695-2039528000671466955-n-1080.jpg"
                   alt="Notre Chef" 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
