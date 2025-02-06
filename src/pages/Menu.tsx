@@ -16,77 +16,41 @@ const Menu = () => {
   return (
     <div className="min-h-screen bg-black text-gold pt-24 px-4">
       <div className="max-w-4xl mx-auto py-16">
-        <div className="flex justify-between items-center mb-20">
-          <h1 className="text-3xl md:text-4xl font-serif">Notre Menu</h1>
-          <button
-            onClick={downloadMenu}
-            className="flex items-center space-x-2 bg-gold/10 hover:bg-gold/20 text-gold px-4 py-2 rounded-md transition"
-          >
-            <FileDown size={20} />
-            <span>Télécharger le Menu</span>
-          </button>
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-3xl md:text-4xl font-serif font-light tracking-wide mb-6">Notre Menu</h1>
+          <p className="text-gold/80 text-lg max-w-2xl mx-auto">
+            Scannez le code QR ci-dessous pour accéder à notre menu directement sur votre appareil
+          </p>
         </div>
 
-        <div className="space-y-20">
-          <section>
-            <h2 className="text-xl md:text-2xl font-serif mb-12 text-center">Entrées</h2>
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-gold/20 pb-6">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-lg md:text-xl mb-2">Foie Gras Maison</h3>
-                  <p className="text-gold/80 text-sm md:text-base">Chutney de figues et pain brioché toasté</p>
-                </div>
-                <span className="text-lg md:text-xl">50 DH</span>
-              </div>
-              <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-gold/20 pb-6">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-lg md:text-xl mb-2">Huîtres Spéciales</h3>
-                  <p className="text-gold/80 text-sm md:text-base">Les 6 huîtres servies sur glace</p>
-                </div>
-                <span className="text-lg md:text-xl">54 DH</span>
-              </div>
+        <div className="flex flex-col items-center space-y-12">
+          {/* QR Code Container */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-gold/30 blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 rounded-3xl"></div>
+            <div className="relative border-2 border-gold/30 p-8 rounded-3xl bg-black/80 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-500">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=https://example.com/menu"
+                alt="Menu QR Code"
+                className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] mx-auto"
+              />
             </div>
-          </section>
+          </div>
 
-          <section>
-            <h2 className="text-xl md:text-2xl font-serif mb-12 text-center">Plats Principaux</h2>
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-gold/20 pb-6">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-lg md:text-xl mb-2">Filet de Bœuf Rossini</h3>
-                  <p className="text-gold/80 text-sm md:text-base">Foie gras poêlé, sauce truffe</p>
-                </div>
-                <span className="text-lg md:text-xl">60 DH</span>
-              </div>
-              <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-gold/20 pb-6">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-lg md:text-xl mb-2">Homard Bleu</h3>
-                  <p className="text-gold/80 text-sm md:text-base">Risotto aux champignons sauvages</p>
-                </div>
-                <span className="text-lg md:text-xl">75 DH</span>
-              </div>
-            </div>
-          </section>
+          {/* Divider with text */}
+          <div className="flex items-center w-full max-w-md">
+            <div className="flex-1 border-t border-gold/30"></div>
+            <p className="px-4 text-gold/80 text-lg">ou téléchargez-le ici</p>
+            <div className="flex-1 border-t border-gold/30"></div>
+          </div>
 
-          <section>
-            <h2 className="text-xl md:text-2xl font-serif mb-12 text-center">Desserts</h2>
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-gold/20 pb-6">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-lg md:text-xl mb-2">Soufflé au Chocolat</h3>
-                  <p className="text-gold/80 text-sm md:text-base">Glace vanille de Madagascar</p>
-                </div>
-                <span className="text-lg md:text-xl">80 DH</span>
-              </div>
-              <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-gold/20 pb-6">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-lg md:text-xl mb-2">Crème Brûlée</h3>
-                  <p className="text-gold/80 text-sm md:text-base">À la vanille bourbon</p>
-                </div>
-                <span className="text-lg md:text-xl">85 DH</span>
-              </div>
-            </div>
-          </section>
+          {/* Download Button */}
+          <button
+            onClick={downloadMenu}
+            className="group flex items-center space-x-3 bg-gold/10 hover:bg-gold/20 text-gold px-6 py-4 rounded-lg transition-all duration-300 border border-gold/30 hover:-translate-y-1"
+          >
+            <FileDown size={24} className="group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-lg tracking-wide">Télécharger le Menu</span>
+          </button>
         </div>
       </div>
     </div>

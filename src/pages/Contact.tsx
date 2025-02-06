@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+    const mailtoLink = `mailto:ledome.caferestaurant@gmail.com?subject=Message from ${name}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`;
+
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="min-h-screen bg-black text-gold pt-20 px-4">
       <div className="max-w-4xl mx-auto py-16">
@@ -45,12 +59,14 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="hover-card border border-gold/20 p-8 rounded-lg backdrop-blur-sm space-y-6">
+          <form onSubmit={handleSubmit} className="hover-card border border-gold/20 p-8 rounded-lg backdrop-blur-sm space-y-6">
             <div>
               <label htmlFor="name" className="block mb-2 text-sm">Nom</label>
               <input
                 type="text"
                 id="name"
+                name="name"
+                required
                 className="input-focus w-full bg-black/50 border border-gold/30 p-3 text-gold rounded-md text-sm"
               />
             </div>
@@ -59,6 +75,8 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                required
                 className="input-focus w-full bg-black/50 border border-gold/30 p-3 text-gold rounded-md text-sm"
               />
             </div>
@@ -66,7 +84,9 @@ const Contact = () => {
               <label htmlFor="message" className="block mb-2 text-sm">Message</label>
               <textarea
                 id="message"
+                name="message"
                 rows={5}
+                required
                 className="input-focus w-full bg-black/50 border border-gold/30 p-3 text-gold rounded-md text-sm"
               ></textarea>
             </div>
