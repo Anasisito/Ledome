@@ -5,6 +5,25 @@ import { Facebook, Instagram, Menu as MenuIcon, X } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Function to handle social media links
+  const getSocialMediaLink = (platform: 'facebook' | 'instagram', url: string) => {
+    // Check if the user is on a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (platform === 'facebook') {
+      return isMobile
+        ? `fb://facewebmodal/f?href=${encodeURIComponent(url)}`
+        : url;
+    } else if (platform === 'instagram') {
+      // Extract Instagram username from URL
+      const username = 'le_dome_kenitra';
+      return isMobile
+        ? `instagram://user?username=${username}`
+        : url;
+    }
+    return url;
+  };
+
   return (
     <nav className="bg-black border-b border-gold/30 py-4 px-4 sm:px-6 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto">
@@ -26,10 +45,20 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <a href="https://web.facebook.com/Ledomekenitra" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
+            <a 
+              href={getSocialMediaLink('facebook', 'https://web.facebook.com/Ledomekenitra')}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon text-gold hover:text-gold/80 transition"
+            >
               <Facebook size={24} />
             </a>
-            <a href="https://www.instagram.com/le_dome_kenitra/" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
+            <a 
+              href={getSocialMediaLink('instagram', 'https://www.instagram.com/le_dome_kenitra/')}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon text-gold hover:text-gold/80 transition"
+            >
               <Instagram size={24} />
             </a>
           </div>
@@ -76,10 +105,20 @@ const Navbar = () => {
                 Nous Contacter
               </Link>
               <div className="flex space-x-6 pt-4">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
+                <a 
+                  href={getSocialMediaLink('facebook', 'https://web.facebook.com/Ledomekenitra')}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-icon text-gold hover:text-gold/80 transition"
+                >
                   <Facebook size={20} />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon text-gold hover:text-gold/80 transition">
+                <a 
+                  href={getSocialMediaLink('instagram', 'https://www.instagram.com/le_dome_kenitra/')}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-icon text-gold hover:text-gold/80 transition"
+                >
                   <Instagram size={20} />
                 </a>
               </div>
